@@ -23,21 +23,19 @@ const SpriteObject: React.FC = () => {
   };
 
   useEffect(() => {
-    fieldContext.fieldData.variables.additional = 10;
-    console.log(fieldContext.fieldData.variables);
+    console.log(fieldContext.fieldData.variables.additional);
     loadEvents();
-  }, [fieldContext]);
+  }, [fieldContext.fieldData.variables.additional]);
 
   return (
     <mesh
       ref={ref}
       onClick={() => {
         console.log(events.onClick());
-        if (fieldContext.setFieldData) {
-          fieldContext.fieldData.variables.additional++;
-          fieldContext.setFieldData({ ...fieldContext.fieldData });
-        }
-        console.log(fieldContext.fieldData.variables);
+        fieldContext.updateVariable(
+          'additional',
+          fieldContext.fieldData.variables.additional + 1
+        );
       }}
     >
       <planeGeometry attach="geometry" args={[5, 5]} />
