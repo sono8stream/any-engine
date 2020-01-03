@@ -6,15 +6,21 @@ import FieldData from '../types/fieldData';
 
 const Field: React.FC = () => {
   const [fieldData, setFieldData] = useState<FieldData>({
-    variables: {},
+    variables: { additional: 10 },
     messages: {}
   });
   const fieldContext = useContext(FieldContext);
+  fieldContext.fieldData = fieldData;
+
   useEffect(() => {
-    fieldContext.fieldData = fieldData;
-    fieldContext.setFieldData = setFieldData;
-    console.log(fieldContext);
+    fieldContext.publishMessage = (name: string, value: any) => {
+      setFieldData({ ...fieldData, messages: { [name]: value } });
+    };
+    fieldContext.updateVariable = (name: string, value: any) => {
+      setFieldData({ ...fieldData, variables: { [name]: value } });
+    };
   }, []);
+
   return (
     <Canvas>
       <SpriteObject />

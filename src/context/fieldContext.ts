@@ -3,13 +3,19 @@ import FieldData from '../types/fieldData';
 
 const FieldContext = React.createContext<{
   fieldData: FieldData;
-  setFieldData: React.Dispatch<React.SetStateAction<FieldData>> | null;
+  publishMessage: (name: string, value: any) => void;
+  updateVariable: (name: string, value: any) => void;
 }>({
   fieldData: {
     variables: {},
     messages: {}
   },
-  setFieldData: null
+  publishMessage: () => {
+    return;
+  },
+  updateVariable: () => {
+    return;
+  }
 });
 
 export default FieldContext;
