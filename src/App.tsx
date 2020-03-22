@@ -1,11 +1,10 @@
 import React from 'react';
-import Field from './demo/Field';
-import MyCanvas from './demo/MyCanvas';
+import Scene2D from './demo/Scene2D';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <MyCanvas />
+      <Scene2D />
     </div>
   );
 };
