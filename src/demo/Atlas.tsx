@@ -39,7 +39,11 @@ const Atlas: React.FC = () => {
   });
 
   mouseContext.addOnTap(sprite.uuid, () => {
-    console.log('tapped');
+    pat++;
+    texture.offset.x = 0.125 * (pat % 4);
+    texture.offset.y = 0.04 * Math.round(pat / 4);
+    texture.needsUpdate = true;
+    console.log('up');
   });
 
   return null;
