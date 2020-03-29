@@ -55,6 +55,7 @@ const Scene2D = () => {
     camera.bottom = -nextHeight / 2;
     camera.updateProjectionMatrix();
 
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(nextWidth, nextHeight);
   });
 
