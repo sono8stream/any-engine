@@ -24,7 +24,9 @@ const MouseListener: React.FC = ({}) => {
     for (const intersection of raycaster.intersectObjects(
       sceneContext.scene.children
     )) {
-      onTaps[intersection.object.uuid]();
+      if (onTaps[intersection.object.uuid]) {
+        onTaps[intersection.object.uuid]();
+      }
     }
   };
   document.addEventListener('mousedown', onClick, false);

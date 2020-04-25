@@ -4,6 +4,8 @@ import SceneContext from '../context/sceneContext';
 import Atlas from './Atlas';
 import KeyListener from './KeyListener';
 import MouseListener from './MouseListener';
+import ImageObject from './ImageObject';
+import SceneMap from './SceneMap';
 
 const Scene2D = () => {
   const scene = new THREE.Scene();
@@ -45,7 +47,7 @@ const Scene2D = () => {
   };
   animate();
 
-  window.addEventListener('resize', () => {
+  const resize = () => {
     const nextWidth = window.innerWidth;
     const nextHeight = window.innerHeight;
 
@@ -57,13 +59,15 @@ const Scene2D = () => {
 
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(nextWidth, nextHeight);
-  });
+  };
+  window.addEventListener('resize', resize);
 
   return (
     <>
       <KeyListener />
       <MouseListener />
-      <Atlas />
+      <SceneMap />
+      <ImageObject />
     </>
   );
 };

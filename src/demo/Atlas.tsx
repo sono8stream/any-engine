@@ -20,6 +20,7 @@ const Atlas: React.FC = () => {
   texture.magFilter = THREE.NearestFilter;
   texture.minFilter = THREE.NearestFilter;
   sprite.scale.set(64, 64, 1);
+  sprite.position.set(0, 0, 1);
   context.addObject(sprite);
   context.addUpdateEvent(() => {
     if (keyContext.getKey('ArrowUp')) {

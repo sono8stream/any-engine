@@ -4,9 +4,7 @@ import SceneContext from '../context/sceneContext';
 
 const ImageObject: React.FC = () => {
   const context = useContext(SceneContext);
-  const logo = './logo.png';
-  const url =
-    'https://stickershop.line-scdn.net/stickershop/v1/sticker/6132312/iPhone/sticker_animation@2x.png';
+  const logo = './sample/5c289afb9a1575862e893a21_01. Royal Heath.jpg';
   new THREE.TextureLoader().load(logo, (texture) => {
     texture.minFilter = THREE.LinearFilter;
     const width = texture.image.width;
